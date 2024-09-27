@@ -10,7 +10,7 @@ function App() {
   const [enquiries, setEnquiries] = useState(0);
   const [fees, setFees] = useState(0);
   const [enrollments, setEnrollments] = useState(0);
-  const [assignments, setAssignments] = useState(0);
+  const [spartss, setspartss] = useState(0);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -28,8 +28,8 @@ function App() {
         const enrollmentsRes = await axios.get('https://strapiqa.sparts.app/api/students-enrolement-data?filters[users][id]=3');
         setEnrollments(enrollmentsRes.data.data.length);
 
-        const assignmentsRes = await axios.get('https://strapiqa.sparts.app/api/assignment-submissions?filters[users][id]=3');
-        setAssignments(assignmentsRes.data.data.length);
+        const spartssRes = await axios.get('https://strapiqa.sparts.app/api/sparts-submissions?filters[users][id]=3');
+        setspartss(spartssRes.data.data.length);
       } catch (error) {
         console.error('Error fetching data', error);
       } finally {
@@ -66,7 +66,7 @@ function App() {
                     <SummaryCard title="Enquiries" count={enquiries} />
                     <SummaryCard title="Fees Collection" count={fees} />
                     <SummaryCard title="Enrollments" count={enrollments} />
-                    <SummaryCard title="Assignments Submitted" count={assignments} />
+                    <SummaryCard title="spartss Submitted" count={spartss} />
                 </div>
             </div>
         </div>
